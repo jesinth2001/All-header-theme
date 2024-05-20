@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+      .navbar{
+        background-color: rgb(0, 119, 255);
+        position:relative;
+        height: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 3rem;
+        color: white;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        box-shadow: 0px 0px 10px rgb(138, 138, 138);
+      }
+      .navbar ul{
+        display: flex ;
+        list-style: none;
+        gap: 30px;
+        font-size: 20px;
+        
+      }
+    .toggle{
+      display: none;
+    }
+
+    .navbar2{
+        background-color: orange;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 60px;
+        padding: 0px 3rem;
+        box-shadow: 0px 0px 10px rgb(138, 138, 138);
+    }
+    
+    .navbar2 .sidebar ul
+    {
+       display: flex;
+       list-style: none;
+       gap: 30px;
+       font-size: 20px;
+       font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .navbar2 .sidebar .logo ,.close-btn,.toggle2{ 
+        display: none;
+    }
+    .navbar3{
+      background-color: crimson;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px 3rem ;
+      box-sizing: border-box;
+      color: white;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 20px;  
+    }
+    .navbar3 ul{
+      display: flex;
+      list-style: none; 
+      gap: 30px;
+    }
+    .toggle3,.close-btn2{
+      display: none;
+    }
+
+    .navbar4{
+      background-color: black;
+      color: white;
+      padding: 0 3rem;
+      box-sizing: border-box;
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .full-sidebar{
+    
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+    .full-sidebar ul{
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+    .full-sidebar .navbar-icons{
+      display: flex;
+      gap: 20px;
+    }
+    .toggle4,.close-btn3{
+      display: none;
+    }
+
+    
+    @media (max-width:768px)
+    {
+      .navbar ul{
+        position: absolute;
+        top:70px;
+        left: 0;
+        right: 0;
+        background-color: rgb(0, 119, 255) ;
+        flex-direction: column;
+        gap:10px;
+        max-height: 0px;
+        color: white;
+        padding: 0px 2rem;
+        margin: 0;
+        overflow: hidden;
+        transition: max-height 0.5s;
+
+      }
+      .navbar .openNav{
+       max-height: 320px;
+  
+      }
+      .navbar ul li {
+        border-bottom: 1.2px solid white;
+        padding: 1rem 0px;
+        box-sizing: border-box;
+      }
+      .navbar ul li:last-child{
+        border-bottom: none;
+      }
+      .toggle {
+        display: block;
+      }
+      .close-btn,.toggle2{ 
+        display: block;
+    }
+      .navbar2 {
+      
+       align-items: center;
+       justify-content: space-between ;
+       flex-direction: row-reverse;
+    }
+    .toggle2 {
+        
+        
+    }
+    .navbar2 .sidebar{
+        position:absolute;
+        z-index: 111;
+        background-color: white;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 70%;
+        padding: 1rem;
+        box-sizing: border-box;
+        transform: translateX(-100%);
+        transition: 0.5s;
+    }
+    .navbar2 .opensidebar
+    {
+        transform: translateX(0%);
+        box-shadow: 0px 0px 10px rgb(219, 219, 219);
+    }
+     .navbar2 .sidebar .logo{
+        color: black;
+        background-color: orange;
+        height: 100px;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .navbar2 .sidebar ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 0;
+        flex-direction: column;
+        font-size: 16px;
+        
+    }
+    .sidebar ul li{
+        padding: 1rem ;
+        box-sizing: border-box;
+        border-bottom: 1.2px solid rgb(231, 231, 231);
+    }
+    .sidebar ul li:last-child
+    {
+        border-bottom: none;
+    }
+    .sidebar .close-btn{
+        text-align: end;
+    }
+
+    .toggle3{
+      display: block;
+    }
+    .navbar3 ul{
+      position: fixed;
+      flex-direction: column;
+      background-color: crimson;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: 0;
+      padding: 2rem 0px;
+      box-sizing: border-box;
+      width: 100%;
+      text-align: center;
+      transform: translateY(-100%);
+      transition: transform 0.5s;
+      
+    }
+    .navbar3 .openTopBar{
+      transform:translateY(0%);
+    
+    }
+    .toggle4{
+      display: block;
+    }
+    .close-btn2{
+      display: block;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .full-sidebar{
+      position: absolute;
+     background-color: black;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: start;
+      padding: 3rem;
+      box-sizing: border-box;
+
+      transform: translateX(-100%);
+      transition: 0.5s;
+    }
+  
+    .full-sidebar ul li{
+      transform: translateX(-150px);
+      visibility: hidden;
+      transition: transform 0.4s ease-out,visibility 0.4s;
+    }
+    .full-sidebar ul li:nth-child(1){
+ transition-delay: .1s;
+    }
+    .full-sidebar ul li:nth-child(2){
+ transition-delay: .2s;
+    }
+    .full-sidebar ul li:nth-child(3){
+ transition-delay: .3s;
+    }
+    .full-sidebar ul li:nth-child(4){
+ transition-delay: .4s;
+    }
+    .full-sidebar ul li:nth-child(5){
+ transition-delay: .5s;
+    }
+
+
+    .openFullSideBar{
+      transform: translateX(0%);
+    }
+    .openFullSideBar ul li{
+      transform: translateX(0);
+             visibility: visible ;
+    }
+    .full-sidebar ul{
+      flex-direction: column;
+      gap: 40px;
+      font-size: 25px;
+      padding: 0;
+      margin: 0;
+      width: 100%;  
+    }
+    .full-sidebar .navbar-icons{
+      width: 100%;
+      justify-content: space-between;
+      font-size: 25px;
+    }
+    .close-btn3{
+      display: block;
+      position: absolute;
+      top: 10px;
+      font-size: 25px;
+      right: 10px;
+    }
+}
+
+   
+  
+</style>
+<script>
+    let click=1;
+   
+ const showNav =() =>{
+    if(click)
+    {
+    document.getElementById("menu").classList.add('openNav')
+    click=0
+    }
+    else{
+        document.getElementById("menu").classList.remove('openNav')
+        click=1
+    }
+ }
+
+ const showNav2 =() =>{
+    document.getElementById("menu2").classList.add('opensidebar')
+
+ }
+  const closeSideBar =()=>{
+       document.getElementById("menu2").classList.remove('opensidebar')
+  }
+
+  const showNav3 =() =>{
+    document.getElementById("menu3").classList.add('openTopBar')
+
+ }
+ const closeTopBar =()=>{
+       document.getElementById("menu3").classList.remove('openTopBar')
+  }
+
+  const showNav4 =() =>{
+    document.getElementById("menu4").classList.add('openFullSideBar')
+
+ }
+ const closeFullSideBar =()=>{
+       document.getElementById("menu4").classList.remove('openFullSideBar')
+  }
+
+  
+
+</script>
+<body>
+  <!-- Header 1 -->
+    <nav class="navbar">
+        <div> Logo </div>
+        <ul id="menu" >
+          <li>Home</li>
+          <li>About</li>
+          <li>services</li>
+          <li>Blog</li>
+          <li>Contact</li>
+        </ul>
+        <div class="toggle">
+          <i class="fa-solid fa-bars" onclick="showNav()"></i>
+        </div>
+       </nav>
+
+       <!-- Header 2 -->
+
+       <nav class="navbar2">
+         <div>Logo</div>
+         <div class="sidebar"  id="menu2">
+            <div class="close-btn">
+                <i class="fa-solid fa-circle-xmark"onclick="closeSideBar()"></i>
+              </div>
+         <div class="logo"> Logo</div>
+         <ul >
+            <li>Home</li>
+            <li>About</li>
+            <li>services</li>
+            <li>Blog</li>
+            <li>Contact</li>
+         </ul>
+        </div>
+        <div class="toggle2">
+            <i class="fa-solid fa-bars" onclick="showNav2()"></i>
+          </div>
+       </nav>
+       <!-- Header 3-->
+       <nav class="navbar3">
+        <div class="logo-cont">
+          Logo
+        </div>
+        <ul id="menu3">
+          <div class="close-btn2">
+            <i class="fa-solid fa-circle-xmark"onclick="closeTopBar()"></i>
+          </div>
+          <li>Home</li>
+          <li>About</li>
+          <li>services</li>
+          <li>Blog</li>
+          <li>Contact</li>
+        </ul>
+        <div class="toggle3">
+          <i class="fa-solid fa-bars" onclick="showNav3()"></i>
+        </div>
+       </nav>
+
+          <!-- Header 4-->
+          <nav class="navbar4">
+            <div class="logo-cont2"> Logo </div>
+            <div class="full-sidebar"  id="menu4">
+              <div class="close-btn3">
+                <i class="fa-solid fa-circle-xmark"onclick="closeFullSideBar()"></i>
+              </div>
+              <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>services</li>
+                <li>Blog</li>
+                <li>Contact</li>
+              </ul>
+              <div class="navbar-icons"> 
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-linkedin"></i>
+                <i class="fa-brands fa-git"></i>
+              </div>
+            </div>
+            <div class="toggle4">
+              <i class="fa-solid fa-bars" onclick="showNav4()"></i>
+            </div>
+          </nav>
+
+</body>
+</html>
