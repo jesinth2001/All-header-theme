@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        padding: 0;
+        margin: 0;
+    }
+    .header {
+        background-color: white;
+        padding: 1rem 4rem;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .menu{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+        gap: 30px;
+        font-size: 1.25rem;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .menu-items, .active-menu{
+        position: relative;
+        padding: 0.25rem 0.5rem;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+    .active-menu::before{
+        content: '';
+        width: 100%;
+        height: 2px;
+        border-radius: 2px;
+        background-color: #FF860B;
+        position: absolute;
+        left: 0;
+        top: 100%;
+    }
+ 
+    .menu-items::before{
+        content: '';
+        width: 0%;
+        height: 2px;
+        border-radius: 2px;
+        background-color: #FF860B;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        transition: 0.5s;
+    }
+    .menu-items:hover::before{
+        width: 100%;
+    }
+    .toggle-menu,.sidebar-logo,.close-btn,.sidebar-icons{
+        display: none;
+    }
+    @media (max-width: 768px)
+    {
+        .toggle-menu,.sidebar-logo,.close-btn,.sidebar-icons{
+        display: block;
+     }
+     .sidebar{
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 70%;
+        background-color: white;
+        padding: 1rem;
+        box-sizing: border-box;
+     }
+     .menu{
+        flex-direction: column;
+        align-items: flex-start;
+        width: min(90%,319px);
+        margin-inline: auto;
+     }
+     .active-menu,
+     .menu-items{
+        display: flex;
+        gap: 10px;
+     }
+     .active-menu{
+        color: #FF860B;
+     }
+     .menu-items:hover{
+
+        color: #FF860B;
+     }
+     .menu-items::before,
+    .active-menu::before {
+        content: none; /* This will hide the ::before pseudo-element */
+    }
+    
+     .close-btn{
+        position: absolute;
+        right: 0;
+        transform: translateX(50%);
+        top: 10px;
+        font-size: 30px;
+     }
+     .sidebar-logo{
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* background-color: red; */
+     }
+  
+    
+    }
+</style>
+<body style="background-color:grey;">
+    <header class="header wrapper-container">
+            <div class="logo">
+                <img src="./Logo.png">
+            </div>
+            <div class="sidebar">
+                <div class="close-btn">
+                    <i class="fa-solid fa-circle-xmark"onclick="closeSideBar()"></i>
+                  </div>
+             <div class="sidebar-logo"> 
+                <img class="sidebar-logo-top" src="./Logo.png">
+             </div>
+                <ul class="menu">
+                    <li class="active-menu">
+                        <span class="sidebar-icons">
+                            <i class="fa-solid fa-house"></i>
+                        </span>
+                        Home
+                    </li>
+                    <li class="menu-items">
+                        <span class="sidebar-icons"><i class="fa-solid fa-circle-question"></i></span>
+                        About Us
+                    </li>
+                    <li class="menu-items">
+                        <span class="sidebar-icons"><i class="fa-solid fa-bars-progress"></i></span>
+                        Projects</li>
+                    <li class="menu-items">
+                        <span class="sidebar-icons"><i class="fa-solid fa-bars-progress"></i></span>
+                        Services</li>
+                    <li class="menu-items">
+                        <span class="sidebar-icons"><i class="fa-solid fa-address-book"></i></span>
+                        Contact Us</li>
+                    <li class="modes">
+                        <img src="./Frame 48096136.png">
+                    </li>
+                </ul>
+            </div>
+            <div class="toggle-menu">
+                <i class="fa-solid fa-bars" onclick="showNav2()"></i>
+              </div>
+    </header>
+
+    <footer class="footer wrapper-container">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="./Logo.png">
+            </div>
+            <div class="links">
+                <h3 class="footer-titles">Links</h3>
+                <ul class="footer-lists">
+                    <li>Home</li>
+                    <li>About Us</li>
+                    <li>Projects</li>
+                    <li>Services</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+
+            <div class="contact">
+                <h3 class="footer-titles">Contact Us</h3>
+                <ul class="footer-lists">
+                    <li>Location:<a href="www.google.map">Saudi</a></li>
+                    <li>Phone No: <a href="tel:+919344399421" >+91 9344399421</a></li>
+                    <li>Email Id: <a href="mailto:jesinthkumar.dev@gmail.com" >jesinthkumar.dev@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="social">
+
+        </div>"
+
+    </footer>
+</body>
+</html>
